@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  perishable: false
+  extension: 1
+  receive_date: 2022-03-09
+  ext_time: 1
+
+two:
+  name: MyString
+  perishable: false
+  extension: 1
+  receive_date: 2022-03-09
+  ext_time: 1
