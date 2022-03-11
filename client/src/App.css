@@ -41,3 +41,12 @@
     transform: rotate(360deg);
   }
 }
+
+Form {
+  display: flex;
+  width: 300px;
+  /* height: 700px; */
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+}

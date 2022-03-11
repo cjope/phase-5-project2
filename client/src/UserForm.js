@@ -1,76 +1,73 @@
-import { FormLabel, Input } from "@material-ui/core";
+import { FormLabel, Input} from "@material-ui/core";
 import { Form } from "react-bootstrap";
-import { useState } from "react";
 
-function UserForm() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [passwordConfirmation, setPasswordConfirmation] = useState();
-  const [image, setImage] = useState();
-  const [email, setEmail] = useState();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+function UserForm({setAge, setUsername, setEmail, setPassword, setPasswordConfirmation, setImage, setFirstName, setLastName}) {
+// function UserForm({setImage}) {
+
+  console.log(setImage)
 
   return (
     <>
-      <Form>
-        <FormLabel>Email</FormLabel>
-        <Input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></Input>
+      <Form >
         <FormLabel>First Name</FormLabel>
         <Input
           type="text"
           id="first_name"
-          value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         ></Input>
+  
         <FormLabel>Last Name</FormLabel>
         <Input
           type="text"
           id="last_name"
-          value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         ></Input>
 
+        <FormLabel>Age</FormLabel>
+        <Input
+          type="text"
+          id="age"
+          onChange={(e) => setAge(e.target.value)}
+        ></Input>
+
+        <FormLabel>Email</FormLabel>
+        <Input
+          type="text"
+          id="email"
+          onChange={(e) => setEmail(e.target.value)}
+        ></Input>
+ 
         <FormLabel>Username</FormLabel>
         <Input
           type="text"
           id="username"
-          value={username}
           onChange={(e) => setUsername(e.target.value)}
         ></Input>
-      </Form>
-      <Form>
+  
         <FormLabel>Password</FormLabel>
         <Input
           type="password"
           id="password"
-          value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
-      </Form>
-      <Form>
+
         <FormLabel>Confirm Password</FormLabel>
         <Input
           type="password"
           id="password_confirmation"
-          value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         ></Input>
-      </Form>
-      <Form>
+
         <FormLabel>Profile Pic</FormLabel>
         <Input
-          // style={{ display: "flex", flexDirection: "row-reverse" }}
+          style={{ marginLeft: "5%" }}
           type="file"
           id="image"
-          value={image}
+          accept="image/*"
+          multiple={false}
           onChange={(e) => setImage(e.target.files[0])}
         ></Input>
+        <button type="submit" >Submit</button>
       </Form>
     </>
   );

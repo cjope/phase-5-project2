@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_one_attached :image
 
     before_create :case_names
     before_update :case_names

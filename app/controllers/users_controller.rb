@@ -18,6 +18,7 @@ class UsersController < ApplicationController
         
         def create
           user = User.create!(user_params)
+          byebug
           session[:user_id] = user.id
           render json: user, status: :created
         end
@@ -37,11 +38,11 @@ class UsersController < ApplicationController
         private
         
           def user_params
-            params.permit(:username, :first_name, :last_name, :password, :password_confirmation, :img_url, :age, :bio, :email)
+            params.permit(:username, :first_name, :last_name, :password, :password_confirmation,  :age, :bio, :email, :image)
           end
         
           def user_update_params
-            params.permit(:username, :img_url)
+            params.permit(:username, :first_name, :last_name, :password, :password_confirmation,  :age, :bio, :email, :image)
           end
     
           def render_not_found(invalid)
