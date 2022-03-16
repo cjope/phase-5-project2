@@ -18,7 +18,6 @@ class UsersController < ApplicationController
         
         def create
           user = User.create!(user_params)
-          byebug
           session[:user_id] = user.id
           render json: user, status: :created
         end
