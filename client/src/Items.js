@@ -1,31 +1,30 @@
-import { useState } from "react";
+function Items({items, setItems}) {
 
-function Items({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
-  function handleLogin(e) {
-    e.preventDefault();
-    onLogin(username, password);
-  }
+  const listItems = items?.map(item=> (
+    <table key={item.id} style={{width: '100%', textAlign: 'center'}} >
+      <tr>
+        <th>Name</th>
+        <th>Receive Date</th>
+        <th>Time Extension</th>
+        <th>New Expiration Date</th>
+      </tr>
+      <tr>
+        <td>{item.name}</td>
+        <td>{item.receive_date}</td>
+        <td>{item.timeframe}</td>
+        <td>{item.extended_date}</td>
+      </tr>
+    </table>
+
+  ))
+
+  console.log(listItems)
 
   return (
     <div>
       <h1>Items</h1>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="username"
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-
-        <button type="submit">Login</button>
-      </form>
+      {listItems}
     </div>
   );
 }
