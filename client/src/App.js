@@ -10,41 +10,41 @@ import { Route, Routes } from "react-router-dom";
 import User from "./User";
 import UserForm from "./UserForm";
 import SignUp from "./SignUp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [user, setUser] = useState([]);
 
-  function onLogin(username, password) {
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then((r) => {
+  const [user, setUser] = useState(null);
+  const [items, setItems] = useState(null)
+
+  useEffect(() => {
+    fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
-      } else {
-        return r.json().then((json) => console.log(json.errors));
       }
     });
-  }
+  }, []);
+
+  useEffect(() => {
+    fetch("/items")
+    .then(r => r.json())
+    .then(items => setItems(items))
+  },[])
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login onLogin={onLogin} />} />
-        <Route path="/edit-user" element={<EditUser />} />
-        <Route path="/items" element={<Items onLogin={onLogin} />} />
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/login" element={<Login user={user} setUser={setUser} />} />
+        <Route path="/edit-user" element={<EditUser user={user} setUser={setUser} />} />
+        <Route path="/items" element={<Items items={items} setItems={setItems} />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/user" element={<User user={user} />} />
         <Route path="/user-form" element={<UserForm />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/logout" element={<Logout setUser={setUser} />} />
       </Routes>
     </>
   );

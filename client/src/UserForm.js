@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 function UserForm({setAge, setUsername, setEmail, setPassword, setPasswordConfirmation, setImage, setFirstName, setLastName}) {
 // function UserForm({setImage}) {
 
-  console.log(setImage)
+  // console.log(setImage)
 
   return (
     <>

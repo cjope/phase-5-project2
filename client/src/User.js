@@ -1,25 +1,19 @@
-import { useEffect, useState } from "react";
-function User() {
-  const [user, setUser] = useState();
+function User({user}) {
 
-  useEffect(() => {
-    fetch("/me")
-      .then((r) => r.json())
-      .then((u) => setUser(u));
-  }, []);
 
   return (
     <div className="user">
       {user ? (
-        <div>
-          <h1>Username: {user.username}</h1>
-          <h2>First Name: {user.first_name}</h2>
-          <h2>Last Name: {user.last_name}</h2>
-          <h2>Age: {user.age}</h2>
-          <h2>Email: {user.email}</h2>
-          <img src={user.image} alt="profile"></img>
+        <div style={{display: "flex"}} >
+          <div>
+          <p>Username: {user.username}</p>
+          <p>First Name: {user.first_name}</p>
+          <p>Last Name: {user.last_name}</p>
+          <p>Age: {user.age}</p>
+          <p>Email: {user.email}</p>
           <p>Bio: {user.bio}</p>
-          <p>password_digest:{user.password_digest}</p>
+          </div>
+          <img style={{width: "300px", height:"300px"}} src={user.image.url} alt="profile"></img>
         </div>
       ) : (
         <></>
