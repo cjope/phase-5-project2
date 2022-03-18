@@ -13,7 +13,9 @@ function User({user}) {
           <p>Email: {user.email}</p>
           <p>Bio: {user.bio}</p>
           </div>
-          <img style={{width: "300px", height:"300px"}} src={user.image.url} alt="profile"></img>
+        
+           <img style={{width: "300px", height:"300px"}} src={user?.image?.url} alt="profile"></img>
+       
         </div>
       ) : (
         <></>

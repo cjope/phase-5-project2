@@ -2,7 +2,7 @@ class Item < ApplicationRecord
     
     def extended_date
         t = self.ext_type
-        r = self.receive_date
+        r = self.exp_date #does receive date matter???
         e = self.extension
         if t == 1
             r + e.days
@@ -29,6 +29,10 @@ class Item < ApplicationRecord
         end  
     end
 
+    def storage_type
+        t = self.storage
+        t == 1 ? "Dry" : t == 2 ? "Fridge" : "Freezer"
+    end
 
 
 

@@ -2,7 +2,10 @@ import Login from "./Login";
 import Logout from "./Logout";
 import SignUp from "./SignUp";
 
-function NavBar({ user, setUser }) {
+function NavBar({ user, setUser, image }) {
+
+  console.log(user)
+
   return (
     <>
         <div className="nav">
@@ -13,7 +16,8 @@ function NavBar({ user, setUser }) {
                 <p>Welcome, {user.first_name}!</p>
                   <img
                     className="profile-pic"
-                    src={user.image.url}
+                    // src={user.image? user.image.url: "/prof1.jpg"}
+                    src={user?.image?.url}
                     alt="profile"
                   />
                 <Logout setUser={setUser} />

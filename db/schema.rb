@@ -42,8 +42,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_233306) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.boolean "perishable"
+    t.integer "storage"
     t.integer "extension"
     t.date "receive_date"
+    t.date "exp_date"
     t.integer "ext_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

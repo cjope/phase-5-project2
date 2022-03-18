@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogTitle, Button } from "@material-ui/core";
 import React, { useState } from "react";
 import UserForm from "./UserForm";
+import { toast, Flip } from "react-toastify";
 
 function Signup({ setUser }) {
   const [firstName, setFirstName] = useState([]);
@@ -40,30 +41,22 @@ function Signup({ setUser }) {
       body: data,
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => console.log(user));
+        r.json().then((user) => setUser(user));
+        handleToClose()
       } else {
-        r.json().then((data) => console.log(data.errors));
+        toast.error("please review your information", {
+          autoClose: 1000,
+          hideProgressBar: true,
+          transition: Flip,
+          position: "top-center"
+        })
       }
     })
   }
 
-  // console.log(image)
+
   return (
     <>
-
-    {/* <form onSubmit={handleSignUp}>
-      <input type="text" onChange={e=>setUsername(e.target.value)} placeholder="setUsername" />
-      <input type="text" onChange={e=>setFirstName(e.target.value)} placeholder="setFirstName" />
-      <input type="text" onChange={e=>setLastName(e.target.value)} placeholder="setLastName" />
-      <input type="text" onChange={e=>setEmail(e.target.value)} placeholder="setEmail" />
-      <input type="text" onChange={e=>setPassword(e.target.value)} placeholder="setPassword" />
-      <input type="text" onChange={e=>setPasswordConfirmation(e.target.value)} placeholder="setPasswordConfirmation" />
-      <input type="file" accept="image/*" multiple={false} onChange={e=>setImage(e.target.files[0])} />
-      <button type="submit"></button>
-    </form> */}
-
-
-
       <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
         Signup
       </Button>
@@ -84,6 +77,7 @@ function Signup({ setUser }) {
             />
           </div>
         </DialogContent>
+      
         <Button onClick={handleToClose} color="primary" autoFocus>
           Close
         </Button>

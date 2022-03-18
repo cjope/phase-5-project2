@@ -54,9 +54,9 @@ import Button from "@material-ui/core/Button";
 import { FormLabel, Input } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 
-function Login({ setUser }) {
+function Login({ setUser, setError }) {
   const [open, setOpen] = React.useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -83,11 +83,14 @@ function Login({ setUser }) {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       } else {
-        return r.json().then((json) =>
-          toast.error(json.errors, {
+        return r.json().then((user) =>
+          toast.error(user.errors, {
             autoClose: 1000,
             hideProgressBar: true,
+            transition: Flip,
+            position: "top-center"
           })
+          // alert(json.errors)
         );
       }
     });
@@ -95,8 +98,8 @@ function Login({ setUser }) {
   }
 
   return (
-    <div style={{}}>
-      <ToastContainer />
+    <div>
+      {/* <ToastContainer /> */}
       <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
         Login
       </Button>
