@@ -5,12 +5,6 @@ class UsersController < ApplicationController
           render json: User.all
         end
         
-        def test
-          render json: User.first
-        end
-    
-    
-    
         def show
           user = User.find_by(id: session[:user_id])
           render json: user
@@ -32,16 +26,16 @@ class UsersController < ApplicationController
           user = User.find_by(id: params[:id])
           user.destroy!
           head :no_content
-        end 
-        
+        end
+
         private
         
           def user_params
-            params.permit(:username, :first_name, :last_name, :password, :password_confirmation,  :age, :bio, :email, :image)
+            params.permit(:username, :first_name, :last_name, :password, :password_confirmation,  :age, :bio, :email)
           end
         
           def user_update_params
-            params.permit(:username, :first_name, :last_name, :password, :password_confirmation,  :age, :bio, :email, :image)
+            params.permit(:username, :first_name, :last_name, :password, :password_confirmation,  :age, :bio, :email)
           end
     
           def render_not_found(invalid)

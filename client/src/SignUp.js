@@ -12,7 +12,7 @@ function Signup({ setUser }) {
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
   const [passwordConfirmation, setPasswordConfirmation] = useState([]);
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   const [open, setOpen] = React.useState(false);
 
   const handleClickToOpen = () => {
@@ -27,11 +27,11 @@ function Signup({ setUser }) {
     e.preventDefault();
     const data = new FormData();
     data.append("username",username);
-    data.append("first_name", firstName)
+    data.append("first_name", firstName) 
     data.append("last_name",lastName)
     data.append("password",password)
     data.append("password_confirmation",passwordConfirmation)
-    data.append("image", image)
+    // data.append("image", image)
     data.append("age",age)
     data.append("bio",bio)
     data.append("email",email)
@@ -70,10 +70,11 @@ function Signup({ setUser }) {
             setEmail={setEmail}
             setPassword={setPassword}
             setPasswordConfirmation={setPasswordConfirmation}
-            setImage={setImage}
+            // setImage={setImage}
             setBio={setBio}
             setFirstName={setFirstName}
             setLastName={setLastName}
+            // image={image}
             />
           </div>
         </DialogContent>

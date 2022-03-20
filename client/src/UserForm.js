@@ -2,10 +2,10 @@ import { FormLabel, Input} from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 
-function UserForm({setAge, setUsername, setEmail, setPassword, setPasswordConfirmation, setImage, setFirstName, setLastName}) {
+function UserForm({setAge, setUsername, setEmail, setPassword, setPasswordConfirmation, setImage, setFirstName, setLastName, image}) {
 // function UserForm({setImage}) {
 
-  // console.log(setImage)
+  // console.log("UserForm", image)
 
   return (
     <>
@@ -61,7 +61,7 @@ function UserForm({setAge, setUsername, setEmail, setPassword, setPasswordConfir
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         ></Input>
 
-        <FormLabel>Profile Pic</FormLabel>
+        {/* <FormLabel>Profile Pic</FormLabel>
         <Input
           style={{ marginLeft: "5%" }}
           type="file"
@@ -69,7 +69,7 @@ function UserForm({setAge, setUsername, setEmail, setPassword, setPasswordConfir
           accept="image/*"
           multiple={false}
           onChange={(e) => setImage(e.target.files[0])}
-        ></Input>
+        ></Input> */}
           <Button type="submit" color="primary" autoFocus>
           Submit
         </Button>

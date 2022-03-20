@@ -4,7 +4,6 @@ import SignUp from "./SignUp";
 
 function NavBar({ user, setUser, image }) {
 
-  console.log(user)
 
   return (
     <>
