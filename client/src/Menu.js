@@ -8,7 +8,7 @@ function Menu() {
       <Link to="/login">Login</Link>
       <Link to="/user">User</Link>
       <Link to="/edit-user">EditUser</Link>
-      <Link to="/user-form">UserForm</Link>
+      <Link to="/user-form">SignUpForm</Link>
       <Link to="/logout">Logout</Link>
     </div>
   );

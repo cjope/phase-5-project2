@@ -1,3 +1,9 @@
+import { Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import { CardMedia } from "material-ui";
+import { Card } from "material-ui/Card";
+
 function Items({items}) {
 
   const listItems = items?.map(item=> (
@@ -19,7 +25,20 @@ function Items({items}) {
 
   return (
     <div>
-      <h1>Items</h1>
+
+      <h1>NEW</h1>
+      <Container>
+        <Typography color="textPrimary" gutterBottom variant="h2" align="center">
+          Items
+        </Typography>
+      </Container>
+
+      <Grid></Grid>
+
+
+
+
+      <h1>OLD:</h1>
 
       <table style={{width: '100%', textAlign: 'center'}} >
         <thead>

@@ -8,7 +8,7 @@ import Menu from "./Menu";
 import NavBar from "./NavBar";
 import { Route, Routes } from "react-router-dom";
 import User from "./User";
-import UserForm from "./UserForm";
+import SignUpForm from "./SignUpForm";
 import SignUp from "./SignUp";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
@@ -53,7 +53,7 @@ function App() {
         <Route path="/items" element={<Items items={items}/>} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/user" element={<User user={user} />} />
-        <Route path="/user-form" element={<UserForm />} />
+        <Route path="/user-form" element={<SignUpForm />} />
         <Route path="/logout" element={<Logout setUser={setUser} />} />
       </Routes>
     </>

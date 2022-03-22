@@ -1,18 +1,15 @@
 import { Dialog, DialogContent, DialogTitle, Button } from "@material-ui/core";
 import React, { useState } from "react";
-import UserForm from "./UserForm";
+import SignUpForm from "./SignUpForm";
 import { toast, Flip } from "react-toastify";
 
 function Signup({ setUser }) {
   const [firstName, setFirstName] = useState([]);
   const [lastName, setLastName] = useState([]);
-  const [age, setAge] = useState([]);
-  const [bio, setBio] = useState([]);
   const [email, setEmail] = useState([]);
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
   const [passwordConfirmation, setPasswordConfirmation] = useState([]);
-  // const [image, setImage] = useState(null);
   const [open, setOpen] = React.useState(false);
 
   const handleClickToOpen = () => {
@@ -31,9 +28,6 @@ function Signup({ setUser }) {
     data.append("last_name",lastName)
     data.append("password",password)
     data.append("password_confirmation",passwordConfirmation)
-    // data.append("image", image)
-    data.append("age",age)
-    data.append("bio",bio)
     data.append("email",email)
 
     fetch("/signup", {
@@ -63,23 +57,19 @@ function Signup({ setUser }) {
       <Dialog open={open} onClose={handleToClose} onSubmit={handleSignUp}>
         <DialogTitle>{"Sign Up"}</DialogTitle>
         <DialogContent>
-          <div>
-            <UserForm 
-            setAge={setAge}
+            <SignUpForm 
             setUsername={setUsername}
             setEmail={setEmail}
             setPassword={setPassword}
             setPasswordConfirmation={setPasswordConfirmation}
-            // setImage={setImage}
-            setBio={setBio}
             setFirstName={setFirstName}
             setLastName={setLastName}
-            // image={image}
             />
-          </div>
         </DialogContent>
-      
-        <Button onClick={handleToClose} color="primary" autoFocus>
+        <Button type="submit" color="primary" autoFocus>
+          Submit
+        </Button>
+        <Button onClick={handleToClose} color="secondary" autoFocus>
           Close
         </Button>
       </Dialog>

@@ -6,30 +6,26 @@ function NavBar({ user, setUser, image }) {
 
 
   return (
-    <>
-        <div className="nav">
-            <h1>Pantry Pal</h1>
+    <div className="nav">
+        <div >
+            <img src="orange-timer.png" alt="orange" />
+            </div>
         <div >
             {user ? 
               <div className="nav">
                 <p>Welcome, {user.first_name}!</p>
-                  <img
-                    className="profile-pic"
-                    // src={user.image? user.image.url: "/prof1.jpg"}
-                    src={user?.image?.url}
-                    alt="profile"
-                  />
+                
                 <Logout setUser={setUser} />
               </div>
              : 
-              <div >
+              <div className="nav" >
                 <Login setUser={setUser}></Login>
                 <SignUp setUser={setUser}></SignUp>
               </div>
             }
+            {/* </div> */}
             </div>
-            </div>
-    </>
+    </div>
   );
 }
 

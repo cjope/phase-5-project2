@@ -55,6 +55,7 @@ import { FormLabel, Input } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { Flip, toast } from "react-toastify";
+import { TextField } from "@material-ui/core";
 
 function Login({ setUser, setError }) {
   const [open, setOpen] = React.useState(false);
@@ -82,6 +83,7 @@ function Login({ setUser, setError }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+        handleToClose();
       } else {
         return r.json().then((user) =>
           toast.error(user.errors, {
@@ -94,12 +96,10 @@ function Login({ setUser, setError }) {
         );
       }
     });
-    handleToClose();
   }
 
   return (
     <div>
-      {/* <ToastContainer /> */}
       <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
         Login
       </Button>
@@ -108,13 +108,25 @@ function Login({ setUser, setError }) {
         <DialogContent>
           <Form>
             <FormLabel>Username</FormLabel>
-            <Input
-              type="text"
-              id="username"
-              value={username}
+            <TextField
+               required
+               variant="outlined"
+               id="outline-required"
+               label="Username"
+               name="username"
               onChange={(e) => setUsername(e.target.value)}
-            ></Input>
-          </Form>
+            ></TextField>
+          <TextField 
+            required
+            variant="outlined"
+            id="outline-required"
+            label="Password"
+            name='password'
+            type="password"
+            onChange={e=>setPassword(e.target.value)}
+        ></TextField>
+
+          {/* </Form>
           <Form>
             <FormLabel>Password</FormLabel>
             <Input
@@ -122,7 +134,7 @@ function Login({ setUser, setError }) {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            ></Input>
+            ></Input> */}
           </Form>
         </DialogContent>
         <DialogActions>
