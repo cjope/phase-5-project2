@@ -12,6 +12,7 @@ class UsersController < ApplicationController
         
         def create
           user = User.create!(user_params)
+          user.valid?
           session[:user_id] = user.id
           render json: user, status: :created
         end
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
           end
     
           def render_not_found(invalid)
-            render json: { errors: invalid.errors.full_messages}
+            render json: { errors: invalid}
           end
         
     end

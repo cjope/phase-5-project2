@@ -51,7 +51,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
-import { FormLabel, Input } from "@material-ui/core";
+import { FormLabel} from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { Flip, toast } from "react-toastify";
@@ -92,67 +92,50 @@ function Login({ setUser, setError }) {
             transition: Flip,
             position: "top-center"
           })
-          // alert(json.errors)
-        );
+        )
       }
-    });
+    })
   }
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
-        Login
-      </Button>
+      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>Login</Button>
       <Dialog open={open} onClose={handleToClose} onSubmit={handleLogin}>
         <DialogTitle>{"Please Log In"}</DialogTitle>
         <DialogContent>
           <Form>
             <FormLabel>Username</FormLabel>
             <TextField
-               required
-               variant="outlined"
-               id="outline-required"
-               label="Username"
-               name="username"
+              required
+              variant="outlined"
+              id="outline-required"
+              label="Username"
+              name="username"
               onChange={(e) => setUsername(e.target.value)}
             ></TextField>
-          <TextField 
-            required
-            variant="outlined"
-            id="outline-required"
-            label="Password"
-            name='password'
-            type="password"
-            onChange={e=>setPassword(e.target.value)}
-        ></TextField>
-
-          {/* </Form>
-          <Form>
-            <FormLabel>Password</FormLabel>
-            <Input
+            <TextField 
+              required
+              variant="outlined"
+              id="outline-required"
+              label="Password"
+              name='password'
               type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></Input> */}
-          </Form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleToClose} color="primary" autoFocus>
-            Close
-          </Button>
-          <Button
-            onClick={handleLogin}
-            color="primary"
-            autoFocus
-            primary="true"
-          >
-            OK
-          </Button>
+              onChange={e=>setPassword(e.target.value)}
+          ></TextField>
+        </Form>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleToClose} color="primary" autoFocus>Close</Button>
+        <Button
+          onClick={handleLogin}
+          color="primary"
+          autoFocus
+          primary="true"
+        >OK
+        </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
-
 export default Login;

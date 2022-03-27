@@ -2,43 +2,45 @@ import { Dialog, DialogContent, DialogTitle, Button } from "@material-ui/core";
 import React, { useState } from "react";
 import SignUpForm from "./SignUpForm";
 import { toast, Flip } from "react-toastify";
+import { Form } from "react-bootstrap";
 
 function Signup({ setUser }) {
-  const [firstName, setFirstName] = useState([]);
-  const [lastName, setLastName] = useState([]);
   const [email, setEmail] = useState([]);
   const [username, setUsername] = useState([]);
-  const [password, setPassword] = useState([]);
+  const [password, setPassword] = useState([])
   const [passwordConfirmation, setPasswordConfirmation] = useState([]);
   const [open, setOpen] = React.useState(false);
+  const body = [username, email, password, passwordConfirmation]
 
-  const handleClickToOpen = () => {
+  function handleClickToOpen() {
     setOpen(true);
-  };
+  }
 
-  const handleToClose = () => {
+  function handleToClose() {
     setOpen(false);
-  };
+  }
 
   function handleSignUp(e) {
-    e.preventDefault();
-    const data = new FormData();
-    data.append("username",username);
-    data.append("first_name", firstName) 
-    data.append("last_name",lastName)
-    data.append("password",password)
-    data.append("password_confirmation",passwordConfirmation)
-    data.append("email",email)
-
+    e.preventDefault()
+    
     fetch("/signup", {
       method: "POST",
-      body: data,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+        password_confirmation: passwordConfirmation
+      }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
         handleToClose()
       } else {
-        toast.error("please review your information", {
+        toast.error( r.errors, {
           autoClose: 1000,
           hideProgressBar: true,
           transition: Flip,
@@ -48,7 +50,6 @@ function Signup({ setUser }) {
     })
   }
 
-
   return (
     <>
       <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
@@ -57,21 +58,23 @@ function Signup({ setUser }) {
       <Dialog open={open} onClose={handleToClose} onSubmit={handleSignUp}>
         <DialogTitle>{"Sign Up"}</DialogTitle>
         <DialogContent>
+          <Form onSubmit={handleSignUp}>
             <SignUpForm 
             setUsername={setUsername}
             setEmail={setEmail}
             setPassword={setPassword}
             setPasswordConfirmation={setPasswordConfirmation}
-            setFirstName={setFirstName}
-            setLastName={setLastName}
+            handleSignUp={handleSignUp}
+            handleToClose={handleToClose}
             />
+            <Button type="submit" color="primary" autoFocus>
+              Submit
+            </Button>
+            <Button onClick={handleToClose} color="secondary" autoFocus>
+              Close
+            </Button>
+          </Form>
         </DialogContent>
-        <Button type="submit" color="primary" autoFocus>
-          Submit
-        </Button>
-        <Button onClick={handleToClose} color="secondary" autoFocus>
-          Close
-        </Button>
       </Dialog>
     </>
   );

@@ -26,29 +26,21 @@ function Logout({ setUser }) {
 
   return (
     <div style={{}}>
-      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
-        Logout
-      </Button>
-
+      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>Logout</Button>
       <Dialog open={open} onClose={handleToClose} onSubmit={handleLogout}>
         <DialogTitle>{"Are you sure?"}</DialogTitle>
-
         <DialogActions>
-          <Button onClick={handleToClose} color="primary" autoFocus>
-            No
-          </Button>
+          <Button onClick={handleToClose} color="primary" autoFocus>No</Button>
           <Button
             onClick={handleLogout}
             color="primary"
             autoFocus
             primary="true"
-          >
-            Yes
+          >Yes
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
-
 export default Logout

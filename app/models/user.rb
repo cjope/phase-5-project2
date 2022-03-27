@@ -6,8 +6,6 @@ class User < ApplicationRecord
     before_update :case_names
 
     validates :username, presence: true, uniqueness: true
-    validates :first_name, presence: true
-    validates :last_name, presence: true
     validates :email, presence: true, uniqueness: true
 
     def case_names
