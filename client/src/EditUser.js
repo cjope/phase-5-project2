@@ -1,17 +1,11 @@
 import React, {useState} from "react"
-import { Button, DialogTitle, Dialog, TextField, Grid, DialogContent } from "@mui/material"
+import { Button, DialogTitle, Dialog, TextField, DialogContent } from "@mui/material"
 import { Form } from "react-bootstrap"
 
 function EditUser({user}){
-  const [firstName, setFirstName] = useState([])
-  const [lastName, setLastName] = useState([])
   const [email, setEmail] = useState([])
   const [username, setUsername] = useState([])
-  const [password, setPassword] = useState([])
-  const [passwordConfirmation, setPasswordConfirmation] = useState([])
   const [open, setOpen] = React.useState(false)
-
-  console.log(lastName, email, username, password, setPassword, passwordConfirmation, setPasswordConfirmation)
 
   const handleClickToOpen = () => {
     setOpen(true)

@@ -1,0 +1,29 @@
+{
+  "name": "phase-5-project",
+  "version": "1.0.0",
+  "description": "phase-5-project",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjope/phase-5-project2.git"
+  },
+  "keywords": [
+    "phase",
+    "5",
+    "project"
+  ],
+  "author": "cjope",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjope/phase-5-project2/issues"
+  },
+  "homepage": "https://github.com/cjope/phase-5-project2#readme"
+}

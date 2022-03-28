@@ -10,7 +10,6 @@ function Signup({ setUser }) {
   const [password, setPassword] = useState([])
   const [passwordConfirmation, setPasswordConfirmation] = useState([]);
   const [open, setOpen] = React.useState(false);
-  const body = [username, email, password, passwordConfirmation]
 
   function handleClickToOpen() {
     setOpen(true);
