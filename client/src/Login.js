@@ -1,50 +1,3 @@
-// import { useState } from "react";
-
-// function Login({user, setUser}) {
-//   const [username, setUsername] = useState(null);
-//   const [password, setPassword] = useState(null); 
-
-//   function handleLogin(e) {
-//     e.preventDefault();
-//     fetch("/login", {
-//       method: "POST",
-//       body: JSON.stringify({username, password}),
-//       headers: {
-//         "Content-Type": "application/json"
-
-//       }
-//     }).then((r) => {
-//       if (r.ok) {
-//         r.json().then((user) => console.log(user));
-//       } else {
-//         r.json().then((data) => console.log(data.errors));
-//       }
-//     })
-//   }
-
-//   return (
-//     <div>
-//       <h1>Login</h1>
-//       <form onSubmit={handleLogin}>
-//         <input
-//           type="text"
-//           placeholder="username"
-//           onChange={(e) => setUsername(e.target.value)}
-//         ></input>
-//         <input
-//           type="password"
-//           placeholder="password"
-//           onChange={(e) => setPassword(e.target.value)}
-//         ></input>
-
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// }
-// export default Login;
-
-
 import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -99,7 +52,7 @@ function Login({ setUser, setError }) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>Login</Button>
+      <Button variant="outlined" style={{backgroundColor:"white"}} onClick={handleClickToOpen}>Login</Button>
       <Dialog open={open} onClose={handleToClose} onSubmit={handleLogin}>
         <DialogTitle>{"Please Log In"}</DialogTitle>
         <DialogContent>
@@ -111,6 +64,7 @@ function Login({ setUser, setError }) {
               id="outline-required"
               label="Username"
               name="username"
+              autoFocus="true"
               onChange={(e) => setUsername(e.target.value)}
             ></TextField>
             <TextField 

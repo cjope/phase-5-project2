@@ -7,9 +7,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* background-color: rgb(88, 88, 88); */
+  background-color: rgb(104, 250, 160);
+  margin-top: 100px;
 }
 
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  text-align: center;
+  /* border: solid 2px rgb(25, 118, 210) !important; */
+}
 
 /* 
 .nav {
@@ -32,10 +37,10 @@ Form {
 }
 
 /* emoji picker */
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type:focus-within {
-  /* background-color: rgb(211, 136, 255); */
-  border: solid 2px rgb(25, 118, 210);
-}
+/* .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type:focus-within { */
+/* background-color: rgb(211, 136, 255); */
+/* border: solid 2px rgb(25, 118, 210); */
+/* } */
 
 /* nav.emoji-categories {
   display: none !important;
@@ -149,14 +154,15 @@ aside.emoji-picker-react ::-webkit-scrollbar {
 
 .nav {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  /* flex-direction: row; */
+  /* justify-content: space-around; */
   align-items: center;
-  margin-top: 1%;
+  /* margin-top: 1%; */
   /* flex-wrap: nowrap; */
-  width: 100%;
-  /* padding-inline: 2%; */
+  /* width: 100%; */
+  padding-inline: 2%;
 }
+
 
 .user {
   display: flex;
@@ -166,8 +172,9 @@ aside.emoji-picker-react ::-webkit-scrollbar {
 }
 
 .nav p {
-  /* width: 100%; */
-  text-align: end;
+  width: 200px;
+  /* text-align: end; */
+  margin-right: 5%;
 }
 
 
@@ -178,8 +185,9 @@ aside.emoji-picker-react ::-webkit-scrollbar {
 } */
 
 .nav img {
-  width: 100px;
+  width: 50px;
   height: auto;
+  padding-left: 50px;
 }
 
 

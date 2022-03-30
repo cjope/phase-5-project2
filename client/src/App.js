@@ -15,6 +15,8 @@ import SignUp from "./SignUp"
 import SignUpForm from "./SignUpForm"
 import User from "./User"
 
+
+
 function App() {
   const [user, setUser] = useState(null)
   const [items, setItems] = useState(null)
@@ -35,7 +37,7 @@ function App() {
     <>
       <ToastContainer/>
       <NavBar user={user} setUser={setUser} />
-      <Menu />
+      {/* <Menu /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp/>} />

@@ -25,8 +25,8 @@ function Logout({ setUser }) {
   }
 
   return (
-    <div style={{}}>
-      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>Logout</Button>
+    <div>
+      <Button variant="outlined" style={{backgroundColor:"white"}} onClick={handleClickToOpen}>Logout</Button>
       <Dialog open={open} onClose={handleToClose} onSubmit={handleLogout}>
         <DialogTitle>{"Are you sure?"}</DialogTitle>
         <DialogActions>

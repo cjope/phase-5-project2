@@ -51,7 +51,7 @@ function Signup({ setUser }) {
 
   return (
     <>
-      <Button variant="outlined" color="primary" onClick={handleClickToOpen}>
+      <Button variant="outlined" style={{backgroundColor:"white"}} onClick={handleClickToOpen}>
         Signup
       </Button>
       <Dialog open={open} onClose={handleToClose} onSubmit={handleSignUp}>
