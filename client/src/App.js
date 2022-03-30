@@ -36,19 +36,18 @@ function App() {
   return (
     <>
       <ToastContainer/>
-      <NavBar user={user} setUser={setUser} />
-
+      <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp/>} />
-        <Route path="/login" element={<Login user={user} setUser={setUser}/>} />
-        <Route path="/edit-user" element={<EditUser user={user} setUser={setUser} />} />
-        <Route path="/items" element={<Items items={items}/>} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/user" element={<User user={user} />} />
-        <Route path="/user-form" element={<SignUpForm />} />
-        <Route path="/logout" element={<Logout setUser={setUser} />} />
-        <Route path="/create-item" element={<CreateItem />} />
+        <Route path="/" element={<Home/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/login" element={<Login user={user} setUser={setUser}/>}/>
+        <Route path="/edit-user" element={<EditUser user={user} setUser={setUser}/>}/>
+        <Route path="/items" element={<Items items={items}/>}/>
+        <Route path="/menu" element={<Menu/>}/>
+        <Route path="/user" element={<User user={user}/>}/>
+        <Route path="/user-form" element={<SignUpForm/>}/>
+        <Route path="/logout" element={<Logout setUser={setUser}/>}/>
+        <Route path="/create-item" element={<CreateItem/>}/>
       </Routes>
     </>
   );

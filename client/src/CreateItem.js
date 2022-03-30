@@ -51,7 +51,7 @@ function CreateItem(){
 
   return(
     <div className="create-item">
-      <Form onSubmit={handleSubmit} >
+      <Form onSubmit={handleSubmit}>
         <FormControl sx={{m: 2 }}>
           <TextField 
             required
@@ -94,7 +94,7 @@ function CreateItem(){
         <FormControl sx={{m:2}}>
           <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} >
             <AccordionSummary 
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon/>}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
             >
@@ -114,6 +114,7 @@ function CreateItem(){
       </FormControl>
       <Button type="submit">Confirm</Button>
     </Form>
+
 
     {/* make this a function */}
     <h1> Results: </h1>
