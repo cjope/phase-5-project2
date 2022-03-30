@@ -34,4 +34,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 client/node_modules/.cache/babel-loader/*
-client/node_modules/.cache/default-development/*
+# client/node_modules/.cache/default-development/*
