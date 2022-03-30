@@ -25,7 +25,6 @@ function NavBar({ user, setUser, image }) {
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <IconButton onClick={e=>{navigate("/")}} ><img src="orange-timer.png" alt="orange" /></IconButton>
-
             </Typography>
             {user ? 
             <div className="nav">
